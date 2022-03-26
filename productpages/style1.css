@@ -1,0 +1,9 @@
+.alpha{
+    position: relative;
+    z-index: -20px !important;
+}
+
+#omega{
+    position: relative;
+    z-index: 50px !important;
+}

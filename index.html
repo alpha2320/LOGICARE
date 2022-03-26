@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+    
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--navbar starts-->
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+<div id="omega" class="w-full  mt-4 text-gray-700 bg-white dark-mode:text-gray-200 z-50 dark-mode:bg-gray-800">
+  <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+    <div class="p-4 flex flex-row items-center justify-between">
+      <a href="#" class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline">logicare & bluedart 
+        voltage stablizers</a>
+      <button class="md:hidden rounded-lg focus:outline-none focus:shadow-outline" @click="open = !open">
+        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+          <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+          <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+        </svg>
+      </button>
+    </div>
+    <nav :class="{'flex': open, 'hidden': !open}" class="flex-col flex-grow pb-4 md:pb-0 hidden md:flex md:justify-end md:flex-row">
+      <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 bg-gray-200 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Home</a>
+      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">About</a>
+      <a class="px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Contact</a>
+      <div @click.away="open = false" class="relative" x-data="{ open: false }">
+        <button @click="open = !open" class="flex flex-row items-center w-full px-4 py-2 mt-2 text-sm font-semibold text-left bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 md:w-auto md:inline md:mt-0 md:ml-4 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+          <span>Products</span>
+          <svg fill="currentColor" viewBox="0 0 20 20" :class="{'rotate-180': open, 'rotate-0': !open}" class="inline w-4 h-4 mt-1 ml-1 transition-transform duration-200 transform md:-mt-1"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+        <div x-show="open" x-transition:enter="transition ease-out duration-100" x-transition:enter-start="transform opacity-0 scale-95" x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75" x-transition:leave-start="transform opacity-100 scale-100" x-transition:leave-end="transform opacity-0 scale-95" class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+          <div class="px-2 z-2 py-2  bg-white rounded-md shadow dark-mode:bg-gray-800">
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Stabilzers</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Brownies</a>
+            <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline" href="#">Corporate Order</a>
+          </div>
+        </div>
+      </div>    
+    </nav>
+  </div>
+</div>
+
+  <!--navbar ends-->
+  <a href="" class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+    </a>
+
+
+  <div class=" z-0 overflow-hidden relative  lg:flex lg:items-center">
+    <div class="w-full py-12 px-4 sm:px-6 lg:py-16 lg:px-8 ">
+        <h2 class="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
+            <span class="block">
+                Welcome to Logicare & Bluedart <br>
+                Voltage Stablizers
+            </span>
+        </h2>
+        <p class="text-lg mt-4 text-gray-400">
+            We are known as one of the leading manufacturers and exporters of CRGO Silicon steel products. We have been servicing the power and distribution transformer industry in India and abroad with world class CRGO steel products.
+        </p>
+        <div class="lg:mt-0 lg:flex-shrink-0">
+            <div class="mt-12 inline-flex rounded-md shadow">
+                <button type="button" class="py-2 px-4  bg-green-500 hover:bg-green-700 focus:ring-green-500 focus:ring-offset-green-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg ">
+                    Contact Us
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="flex items-center gap-2 mt-0 p-8 lg:p-24">
+        <img  src="/imgs/Screenshot 2022-03-06 at 4.56.52 PM.png" class="rounded-lg " alt="Tree"/>
+        
+    </div>
+</div>
+
+
+</div> 
+
+
+
+<h1 class="ml-6   text-4xl font-sans font-semibold " >About Us</h1>
+
+<p class=" m-6 ">With a vast experience of over 30 years in the field of electrical transformers, we have established our core competencies in the design, development and manufacturing of various products in CRGO Steel conforming to global quality standards. We are known for manufacturing high quality transformer cores, toroidal cores, and other electrical stampings for our esteemed clients. We have two state of the art production facilities in Delhi and Roorkee with all in-house facilities for slitting, cutting, annealing and testing of transformer laminations and CRGO stampings.
+  JMD Industries Pvt. Ltd. was established in 1988 as a manufacturer of CRGO Silicon steel cores for the emerging transformer industry of India. <br> <br> With two units located in Roorkee, the manufacturing facilities are centrally positioned for supply of all kinds of CRGO Silicon steel products for transformers - power/distribution and special applications. Various reputed manufacturers of distribution and power transformers rely on JMD Industries for world-class products and an excellent quality of collaboration.
+  With state of the art production facilities spread across a total area of 11,500 sq. ft., we have established our core competencies in the design, development and manufacturing of CRGO steel cores conforming to global standards of quality.
+  At JMD Industries, supplying quality products at competitive pricing, with timely deliveries is our specialty.</p>
+
+  <button class="bg-green-500 px-5 mt-4 ml-6 py-3 text-sm shadow-sm font-medium  tracking-wider text-white  rounded-xl hover:shadow-2xl hover:bg-green-600">Read More</button>
+
+
+  
+
+ 
+ 
+<!--cards-->
+
+<h1 class="text-center text-4xl font-sans font-semibold mt-8	" >Our Products</h1>
+
+<div  class="flex items-center mt-8 justify-center">
+  <div class="grid grid-cols-1 gap-8 m-2 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-3">
+
+<!--air conditioner-->
+<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+  <a href="#">
+      <img class="rounded-t-lg" src="./imgs/2b44a4abf4a9b5f3b6abb731edb6bbe9.jpeg" alt="" />
+  </a>
+  <div class="p-5">
+      <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> For Air Conditioner</h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, eveniet!.</p>
+      
+      <!--test-->
+      <div class=" flex space-x-5 "><button class="block text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="defaultModal1">
+        1.5 Ton
+      </button>
+      <button class="block text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="defaultModal">
+       2 Ton
+      </button>
+      </div>
+      
+      <!-- Main modal -->
+      <div id="defaultModal1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
+          <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
+                      <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                          For Air Conditioner of 1.5 Ton
+                      </h3>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal1">
+                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                      </button>
+                      
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-8 space-y-4 space-x-2 ">
+                    <button onclick="window.location.href='./productpages/product1.html'"  class="bg-blue-500 overflow-ellipsis text-white  px-8 py-4  lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">Single Step</button>
+                    <button onclick="window.location.href='./productpages/product2.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">Two Step</button>
+                    <button onclick="window.location.href='./productpages/product3.html'" class="bg-blue-500 overflow-ellipsis text-white  px-9 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">Three Step</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">Four Step</button>
+                    
+  
+                  </div>
+                  <!-- Modal footer -->
+                  
+              </div>
+          </div>
+      </div>  
+
+
+
+
+      <div id="defaultModal" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
+        <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                        For Air Conditioner of 2 Ton
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                    </button>
+                    
+                </div>
+                <!-- Modal body -->
+                <div class="p-8 space-y-4 lg\:ml-10">
+                  <button onclick="window.location.href='./productpages/product5.html'" class="bg-blue-500 overflow-ellipsis text-white  px-8 py-4  lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">Single Step</button>
+                  <button onclick="window.location.href='./productpages/product6.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">Two Step</button>
+                  <button onclick="window.location.href='./productpages/product7.html'" class="bg-blue-500 overflow-ellipsis text-white  px-9 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">Three Step</button>
+                  <button onclick="window.location.href='./productpages/product8.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">Four Step</button>
+                  
+
+                </div>
+                <!-- Modal footer -->
+                
+            </div>
+        </div>
+    </div>  
+        
+      <!--test end-->
+  </div>
+</div>
+<!--refrigenators-->
+<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+  <a href="#">
+      <img class="rounded-t-lg" src="./imgs/New Project (6).jpg" alt="" />
+  </a>
+  <div class="p-5">
+      <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> For Refrigerator  </h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, eveniet!.</p>
+      <a href="./main/refrigenator.html" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:ring-green-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          View More
+          <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </a>
+  </div>
+</div>
+
+
+<!--television-->
+<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+  <a href="#">
+      <img class="rounded-t-lg" src="./imgs/tele.jpg" alt="" />
+  </a>
+  <div class="p-5">
+      <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> For Television  </h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, eveniet!.</p>
+      <a href="./main/television.html" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:ring-green-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          View More
+          <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </a>
+  </div>
+</div>
+
+<!--Servo-->
+<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+  <a href="#">
+      <img class="rounded-t-lg" src="./imgs/motor.jpg" alt="" />
+  </a>
+  <div class="p-5">
+      <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> For Servo  </h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, eveniet!.</p>
+      <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:ring-green-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          View More
+          <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </a>
+  </div>
+</div>
+
+<!--CVT-->
+<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+  <a href="#">
+      <img class="rounded-t-lg" src="./imgs/trnsmission.jpg" alt="" />
+  </a>
+  <div class="p-5">
+      <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> For CVT  </h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, eveniet!.</p>
+      <a href="#" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-500 rounded-lg hover:bg-green-600 focus:ring-4 focus:ring-green-200 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+          View More
+          <svg class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+      </a>
+  </div>
+</div>
+
+
+<!--mainline-->
+<div class="max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
+  <a href="#">
+      <img class="rounded-t-lg" src="./imgs/mainline.png" alt="" />
+  </a>
+  <div class="p-5">
+      <a href="#">
+          <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> For Mainline  </h5>
+      </a>
+      <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, eveniet!.</p>
+      <!--test-->
+      <div class=" flex space-x-5 "><button class="block text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="defaultModal2">
+        single phase (100-300) 
+      </button>
+      <button class="block text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="defaultModal3">
+        double phase (100-500)
+      </button>
+      <button class="block text-white bg-green-500 hover:bg-green-600 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" data-modal-toggle="defaultModal4">
+        single phase (50-300)
+      </button>
+      </div>
+              
+      <!-- Main modal -->
+      <div id="defaultModal2" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
+          <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
+              <!-- Modal content -->
+              <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                  <!-- Modal header -->
+                  <div class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
+                      <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                        For Mainline  single phase (100-300)
+                      </h3>
+                      <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal2">
+                          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                      </button>
+                      
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-8 space-y-4 space-x-2 ">
+                    <button onclick="window.location.href='./productpages/product1.html'"  class="bg-blue-500 overflow-ellipsis text-white  px-8 py-4  lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">1kva</button>
+                    <button onclick="window.location.href='./productpages/product2.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">2kva</button>
+                    <button onclick="window.location.href='./productpages/product3.html'" class="bg-blue-500 overflow-ellipsis text-white  px-9 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">3kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">4kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">5kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">8kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">10kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">15kva</button>
+
+
+
+
+                    
+  
+                  </div>
+                  <!-- Modal footer -->
+                  
+              </div>
+          </div>
+      </div>  
+
+
+
+
+      <div id="defaultModal3" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
+        <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
+            <!-- Modal content -->
+            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                <!-- Modal header -->
+                <div class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
+                    <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                        For Mainline Double Phase(100-500)
+                    </h3>
+                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal3">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                    </button>
+                    
+                </div>
+                <!-- Modal body -->
+                <div class="p-8 space-y-4 lg\:ml-10">
+                  <button onclick="window.location.href='./productpages/product1.html'"  class="bg-blue-500 overflow-ellipsis text-white  px-8 py-4  lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">1kva</button>
+                    <button onclick="window.location.href='./productpages/product2.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">2kva</button>
+                    <button onclick="window.location.href='./productpages/product3.html'" class="bg-blue-500 overflow-ellipsis text-white  px-9 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">3kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">4kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">5kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">8kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">10kva</button>
+                    <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">15kva</button>
+
+
+
+                </div>
+                <!-- Modal footer -->
+                
+            </div>
+        </div>
+    </div>  
+
+
+
+    <div id="defaultModal4" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
+      <div class="relative px-4 w-full max-w-2xl h-full md:h-auto">
+          <!-- Modal content -->
+          <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+              <!-- Modal header -->
+              <div class="flex justify-between items-start p-5 rounded-t border-b dark:border-gray-600">
+                  <h3 class="text-xl font-semibold text-gray-900 lg:text-2xl dark:text-white">
+                      For Mainline Single Phase(50-300)
+                  </h3>
+                  <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-toggle="defaultModal4">
+                      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
+                  </button>
+                  
+              </div>
+              <!-- Modal body -->
+              <div class="p-8 space-y-4 lg\:ml-10">
+                <button onclick="window.location.href='./productpages/product1.html'"  class="bg-blue-500 overflow-ellipsis text-white  px-8 py-4  lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">1kva</button>
+                  <button onclick="window.location.href='./productpages/product2.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">2kva</button>
+                  <button onclick="window.location.href='./productpages/product3.html'" class="bg-blue-500 overflow-ellipsis text-white  px-9 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">3kva</button>
+                  <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">4kva</button>
+                  <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">5kva</button>
+                  <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">8kva</button>
+                  <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">10kva</button>
+                  <button onclick="window.location.href='./productpages/product4.html'" class="bg-blue-500 overflow-ellipsis text-white  px-10 py-4 lg\:px-12 rounded-md text-xl font-medium hover:bg-blue-700 transition duration-300">15kva</button>
+
+
+
+              </div>
+              <!-- Modal footer -->
+              
+          </div>
+      </div>
+  </div>  
+        
+      <!--test end-->
+  </div>
+</div>
+
+
+
+
+
+
+</div>
+</div>
+</div>
+
+<!--footer-->
+
+<div class="bg-gray-100 mt-6  ">
+  <div class=" text-gray-800 ">
+     
+     <div class="p-5 w-48 ">
+        <div class="text-xs uppercase text-gray-500 font-medium">Contact us</div>
+        <a class="my-3 block" href="/#">XXX XXXX, Tilak Nagarhehe <span class="text-teal-600 text-xs p-1"></span></a><a class="my-3 block" href="/#">contact@company.com <span class="text-teal-600 text-xs p-1"></span></a> 
+     </div>
+  </div>
+</div>
+
+<div class="bg-gray-100 pt-2 ">
+  <div class="flex pb-5 px-3 m-auto pt-5 border-t text-gray-800 text-sm flex-col
+     md:flex-row max-w-6xl">
+     <div class="mt-2">Logicare © Copyright 2022. All Rights Reserved.</div>
+     <div class="md:flex-auto md:flex-row-reverse mt-2 flex-row flex">
+        <a href="/#" class="w-6 mx-1">
+           <svg class="fill-current cursor-pointer text-gray-500 hover:text-gray-400" width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2;">
+              <path id="Twitter" d="M24,12c0,6.627 -5.373,12 -12,12c-6.627,0 -12,-5.373 -12,-12c0,-6.627
+                 5.373,-12 12,-12c6.627,0 12,5.373 12,12Zm-6.465,-3.192c-0.379,0.168
+                 -0.786,0.281 -1.213,0.333c0.436,-0.262 0.771,-0.676
+                 0.929,-1.169c-0.408,0.242 -0.86,0.418 -1.341,0.513c-0.385,-0.411
+                 -0.934,-0.667 -1.541,-0.667c-1.167,0 -2.112,0.945 -2.112,2.111c0,0.166
+                 0.018,0.327 0.054,0.482c-1.754,-0.088 -3.31,-0.929
+                 -4.352,-2.206c-0.181,0.311 -0.286,0.674 -0.286,1.061c0,0.733 0.373,1.379
+                 0.94,1.757c-0.346,-0.01 -0.672,-0.106 -0.956,-0.264c-0.001,0.009
+                 -0.001,0.018 -0.001,0.027c0,1.023 0.728,1.877 1.694,2.07c-0.177,0.049
+                 -0.364,0.075 -0.556,0.075c-0.137,0 -0.269,-0.014 -0.397,-0.038c0.268,0.838
+                 1.048,1.449 1.972,1.466c-0.723,0.566 -1.633,0.904 -2.622,0.904c-0.171,0
+                 -0.339,-0.01 -0.504,-0.03c0.934,0.599 2.044,0.949 3.237,0.949c3.883,0
+                 6.007,-3.217 6.007,-6.008c0,-0.091 -0.002,-0.183 -0.006,-0.273c0.413,-0.298
+                 0.771,-0.67 1.054,-1.093Z"></path>
+           </svg>
+        </a>
+        <a href="/#" class="w-6 mx-1">
+           <svg class="fill-current cursor-pointer text-gray-500 hover:text-gray-400" width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2;">
+              <path id="Facebook" d="M24,12c0,6.627 -5.373,12 -12,12c-6.627,0 -12,-5.373 -12,-12c0,-6.627
+                 5.373,-12 12,-12c6.627,0 12,5.373
+                 12,12Zm-11.278,0l1.294,0l0.172,-1.617l-1.466,0l0.002,-0.808c0,-0.422
+                 0.04,-0.648 0.646,-0.648l0.809,0l0,-1.616l-1.295,0c-1.555,0 -2.103,0.784
+                 -2.103,2.102l0,0.97l-0.969,0l0,1.617l0.969,0l0,4.689l1.941,0l0,-4.689Z"></path>
+           </svg>
+        </a>
+        <a href="/#" class="w-6 mx-1">
+           <svg class="fill-current cursor-pointer text-gray-500 hover:text-gray-400" width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2;">
+              <g id="Layer_1">
+                 <circle id="Oval" cx="12" cy="12" r="12"></circle>
+                 <path id="Shape" d="M19.05,8.362c0,-0.062 0,-0.125 -0.063,-0.187l0,-0.063c-0.187,-0.562
+                    -0.687,-0.937 -1.312,-0.937l0.125,0c0,0 -2.438,-0.375 -5.75,-0.375c-3.25,0
+                    -5.75,0.375 -5.75,0.375l0.125,0c-0.625,0 -1.125,0.375
+                    -1.313,0.937l0,0.063c0,0.062 0,0.125 -0.062,0.187c-0.063,0.625 -0.25,1.938
+                    -0.25,3.438c0,1.5 0.187,2.812 0.25,3.437c0,0.063 0,0.125
+                    0.062,0.188l0,0.062c0.188,0.563 0.688,0.938 1.313,0.938l-0.125,0c0,0
+                    2.437,0.375 5.75,0.375c3.25,0 5.75,-0.375 5.75,-0.375l-0.125,0c0.625,0
+                    1.125,-0.375 1.312,-0.938l0,-0.062c0,-0.063 0,-0.125
+                    0.063,-0.188c0.062,-0.625 0.25,-1.937 0.25,-3.437c0,-1.5 -0.125,-2.813
+                    -0.25,-3.438Zm-4.634,3.927l-3.201,2.315c-0.068,0.068 -0.137,0.068
+                    -0.205,0.068c-0.068,0 -0.136,0 -0.204,-0.068c-0.136,-0.068 -0.204,-0.204
+                    -0.204,-0.34l0,-4.631c0,-0.136 0.068,-0.273 0.204,-0.341c0.136,-0.068
+                    0.272,-0.068 0.409,0l3.201,2.316c0.068,0.068 0.136,0.204
+                    0.136,0.34c0.068,0.136 0,0.273 -0.136,0.341Z" style="fill: rgb(255, 255, 255);"></path>
+              </g>
+           </svg>
+        </a>
+        <a href="/#" class="w-6 mx-1">
+           <svg class="fill-current cursor-pointer text-gray-500 hover:text-gray-400" width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2;">
+              <path id="Shape" d="M7.3,0.9c1.5,-0.6 3.1,-0.9 4.7,-0.9c1.6,0 3.2,0.3 4.7,0.9c1.5,0.6 2.8,1.5
+                 3.8,2.6c1,1.1 1.9,2.3 2.6,3.8c0.7,1.5 0.9,3 0.9,4.7c0,1.7 -0.3,3.2
+                 -0.9,4.7c-0.6,1.5 -1.5,2.8 -2.6,3.8c-1.1,1 -2.3,1.9 -3.8,2.6c-1.5,0.7
+                 -3.1,0.9 -4.7,0.9c-1.6,0 -3.2,-0.3 -4.7,-0.9c-1.5,-0.6 -2.8,-1.5
+                 -3.8,-2.6c-1,-1.1 -1.9,-2.3 -2.6,-3.8c-0.7,-1.5 -0.9,-3.1 -0.9,-4.7c0,-1.6
+                 0.3,-3.2 0.9,-4.7c0.6,-1.5 1.5,-2.8 2.6,-3.8c1.1,-1 2.3,-1.9
+                 3.8,-2.6Zm-0.3,7.1c0.6,0 1.1,-0.2 1.5,-0.5c0.4,-0.3 0.5,-0.8 0.5,-1.3c0,-0.5
+                 -0.2,-0.9 -0.6,-1.2c-0.4,-0.3 -0.8,-0.5 -1.4,-0.5c-0.6,0 -1.1,0.2
+                 -1.4,0.5c-0.3,0.3 -0.6,0.7 -0.6,1.2c0,0.5 0.2,0.9 0.5,1.3c0.3,0.4 0.9,0.5
+                 1.5,0.5Zm1.5,10l0,-8.5l-3,0l0,8.5l3,0Zm11,0l0,-4.5c0,-1.4 -0.3,-2.5
+                 -0.9,-3.3c-0.6,-0.8 -1.5,-1.2 -2.6,-1.2c-0.6,0 -1.1,0.2 -1.5,0.5c-0.4,0.3
+                 -0.8,0.8 -0.9,1.3l-0.1,-1.3l-3,0l0.1,2l0,6.5l3,0l0,-4.5c0,-0.6 0.1,-1.1
+                 0.4,-1.5c0.3,-0.4 0.6,-0.5 1.1,-0.5c0.5,0 0.9,0.2 1.1,0.5c0.2,0.3 0.4,0.8
+                 0.4,1.5l0,4.5l2.9,0Z"></path>
+           </svg>
+        </a>
+        <a href="/#" class="w-6 mx-1">
+           <svg class="fill-current cursor-pointer text-gray-500 hover:text-gray-400" width="100%" height="100%" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule: evenodd; clip-rule: evenodd; stroke-linejoin: round; stroke-miterlimit: 2;">
+              <path id="Combined-Shape" d="M12,24c6.627,0 12,-5.373 12,-12c0,-6.627 -5.373,-12 -12,-12c-6.627,0
+                 -12,5.373 -12,12c0,6.627 5.373,12 12,12Zm6.591,-15.556l-0.722,0c-0.189,0
+                 -0.681,0.208 -0.681,0.385l0,6.422c0,0.178 0.492,0.323
+                 0.681,0.323l0.722,0l0,1.426l-4.675,0l0,-1.426l0.935,0l0,-6.655l-0.163,0l-2.251,8.081l-1.742,0l-2.222,-8.081l-0.168,0l0,6.655l0.935,0l0,1.426l-3.74,0l0,-1.426l0.519,0c0.203,0
+                 0.416,-0.145 0.416,-0.323l0,-6.422c0,-0.177 -0.213,-0.385
+                 -0.416,-0.385l-0.519,0l0,-1.426l4.847,0l1.583,5.704l0.042,0l1.598,-5.704l5.021,0l0,1.426Z"></path>
+           </svg>
+        </a>
+     </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<script src="https://unpkg.com/flowbite@1.3.4/dist/flowbite.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+
+<script src="./app.js"></script>
+</body>
+</html>
